@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd ${0%/*} || exit 1
+set -x
+
+wclean solvers/biofilmGrowthFoam
+wclean solvers/dbsPimpleFoam
+wclean solvers/pimpleFoam
+
+wclean utilities/inoculumGenerator
+wclean utilities/parabolicVelocity
+
+if [ "$1" = "--purge" ]
+then
+    rm -f $FOAM_USER_APPBIN/biofilmGrowthFoam
+    rm -f $FOAM_USER_APPBIN/dbsPimpleFoam
+    rm -f $FOAM_USER_APPBIN/pimpleFoam    
+    rm -f $FOAM_USER_APPBIN/inoculumGenerator
+    rm -f $FOAM_USER_LIBBIN/libparabolicVelocity.so
+fi

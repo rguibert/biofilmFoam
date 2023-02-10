@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=biofilmGrowthPicardFoam
+
+cp 0/M.org 0/M
+runApplication blockMesh
+runApplication setFields
+runApplication $app
+runApplication postProcess -func sample

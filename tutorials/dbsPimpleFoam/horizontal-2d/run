@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=dbsPimpleFoam
+
+cp 0/porosity.org 0/porosity
+runApplication setFields
+runApplication blockMesh
+runApplication $app
