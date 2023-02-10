@@ -1,14 +1,13 @@
 /*---------------------------------------------------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     |
-    \\  /    A nd           | www.openfoam.com
-     \\/     M anipulation  |
--------------------------------------------------------------------------------
-    Copyright (C) 2011 OpenFOAM Foundation
--------------------------------------------------------------------------------
+
+
+    ]3 | () /= | |_ |\/| /= () /\ |\/|
+
+    Copyright 2023 Toulouse INP
+    Romain Guibert
+
 License
-    This file is part of OpenFOAM.
+    This file is part of biofilmFoam, an extension of OpenFOAM.
 
     OpenFOAM is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by
