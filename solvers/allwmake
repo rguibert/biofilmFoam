@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd ${0%/*} || exit 1
+set -x
+
+wmake biofilmGrowthFoam
+wmake biofilmGrowthPicardFoam
+wmake dbsBiofilmPimpleFoam
+
+wmake dbsPimpleFoam
+wmake pimpleFoam
+
+wmake ../utilities/inoculumGenerator
+wmake ../utilities/parabolicVelocity
