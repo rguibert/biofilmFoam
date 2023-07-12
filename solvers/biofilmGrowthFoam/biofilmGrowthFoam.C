@@ -28,6 +28,7 @@ Application
 
 #include "fvCFD.H"
 #include "pimpleControl.H"
+#include "timestepManager.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -38,7 +39,8 @@ int main(int argc, char *argv[])
     #include "createTime.H"
     #include "createMesh.H"
     #include "createFields.H"
-  
+    #include "readTimeControls.H"
+    
     pimpleControl pimple(mesh);
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -47,14 +49,16 @@ int main(int argc, char *argv[])
 
     while (runTime.run())
     {
-
-	#include "readTimeControls.H"
+	
 	#include "setDeltaT.H"
 	
 	runTime++;
       
 	Info << "Time = " << runTime.timeName() << nl << endl;
-      
+
+	dtManagerC.updateDerivatives();
+	dtManagerM.updateDerivatives();
+		
 	#include "CEqn.H"
 	#include "updateDiffusion.H"
 	#include "MEqn.H"

@@ -17,59 +17,77 @@ FoamFile
 
 solvers
 {
-  p
+    
+    p
     {
-      solver           GAMG;
-      smoother         DICGaussSeidel;
-      tolerance        1e-6;
-      relTol           0.01;
+	solver           GAMG;
+	smoother         DICGaussSeidel;
+	tolerance        1e-6;
+	relTol           0.001;
     }
 
-  pFinal
+    pFinal
     {
-      $p;
-      relTol          0;
+	$p;
+	relTol          0;
     }
 
-  U
+    U
     {
-      solver          smoothSolver;
-      smoother        symGaussSeidel;
-      tolerance       1e-05;
-      relTol          0.1;
+	solver          smoothSolver;
+	smoother        symGaussSeidel;
+	tolerance       1e-6;
+	relTol          0.001;
     }
 
-  UFinal
+    UFinal
     {
-      $U;
-      relTol          0;
+	$U;
+	relTol          0;
     }
-  M
+  
+    M
     {
-      solver          PCG;
-      preconditioner  DIC;
-      tolerance       1e-6;
-      relTol          0;
+	solver          PCG;
+	preconditioner  DIC;
+	tolerance       1e-5;
+	relTol          0;
     }
 
-  C
+    C // fluid coupling
     {
-      solver          PBiCG;
-      preconditioner  DILU;
-      tolerance       1e-6;
-      relTol          0;
-    }  
+	solver          smoothSolver;
+	smoother        GaussSeidel;
+	tolerance       1e-5;
+	maxIter         1e5;
+	relTol          0;
+    }
+    
+    // C // transport only
+    // {
+    // 	solver          PCG;
+    // 	preconditioner  DIC;
+    // 	tolerance       1e-6;
+    // 	relTol          0;
+    // }
+    
 }
 
 PIMPLE
 {
-  momentumPredictor   no;
-  nNonOrthogonalCorrectors 0;
-  nCorrectors         2;
-  nOuterCorrectors    2;
 
-  pRefCell    0;
-  pRefValue    0;
+    consistent          no;
+    momentumPredictor   no;
+  
+    nNonOrthogonalCorrectors 0;
+    nCorrectors              2;
+  
+    nOuterCorrectors    1; // PISO
+    //nOuterCorrectors    2; // PIMPLE
+  
+    pRefCell    0;
+    pRefValue    0;
+
 }
 
 

@@ -47,10 +47,8 @@ runTimeModifiable true;
 
 adjustTimeStep    yes;
 
-//maxCo             0.4;
-
 maxDeltaT         3600;
 
-maxDeltaS         1e-2;
+truncationError   0.01;
 
 // ************************************************************************* //

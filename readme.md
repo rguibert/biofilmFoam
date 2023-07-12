@@ -1,5 +1,5 @@
 
-```bash
+```
 ]3 | () /= | |_ |\/| /= () /\ |\/|
 
 Copyright 2023 Toulouse INP

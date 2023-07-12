@@ -45,9 +45,9 @@ runTimeModifiable yes;
 
 adjustTimeStep  yes;
 
-maxCo           50;
+maxDeltaT       3600;
 
-maxDeltaT       600;
+truncationError 0.001;
 
 libs ("libparabolicVelocity.so");
 

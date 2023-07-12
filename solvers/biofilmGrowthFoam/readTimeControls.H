@@ -25,21 +25,24 @@ License
 Global
     readTimeControls
 
-Description
-    Read the control parameters used by setDeltaT
-
 \*---------------------------------------------------------------------------*/
 
 const bool adjustTimeStep =
-  runTime.controlDict().getOrDefault("adjustTimeStep", false);
-
-//scalar maxCo =
-//  runTime.controlDict().getOrDefault<scalar>("maxCo", 1);
+runTime.controlDict().getOrDefault("adjustTimeStep", false);
 
 scalar maxDeltaT =
-  runTime.controlDict().getOrDefault<scalar>("maxDeltaT", GREAT);
+runTime.controlDict().getOrDefault<scalar>("maxDeltaT", GREAT);
 
-scalar maxDeltaS =
-  runTime.controlDict().getOrDefault<scalar>("maxDeltaS", GREAT);
+const scalar truncationError_global =
+runTime.controlDict().lookupOrDefault<scalar>("truncationError",0.01);
+
+const scalar truncationError_C =
+runTime.controlDict().lookupOrDefault<scalar>("truncationError_C",truncationError_global);
+
+const scalar truncationError_M =
+runTime.controlDict().lookupOrDefault<scalar>("truncationError_M",truncationError_global);
+
+timestepManager dtManagerC(runTime, C, truncationError_C);
+timestepManager dtManagerM(runTime, M, truncationError_M);
 
 // ************************************************************************* //

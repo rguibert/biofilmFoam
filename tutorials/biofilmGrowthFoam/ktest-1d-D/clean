@@ -5,3 +5,4 @@
 cleanCase
 rm -rf 0/M
 rm -rf *.pdf
+touch ktest-1d-D.foam

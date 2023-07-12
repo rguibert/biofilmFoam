@@ -1,4 +1,9 @@
 
+#    ]3 | () /= | |_ |\/| /= () /\ |\/|
+
+#    Copyright 2023 Toulouse INP
+#    Romain Guibert
+
 import os
 import sys
 import numpy as np

@@ -37,6 +37,7 @@ Application
 //#include "CorrectPhi.H"
 #include "cfdTools/general/CorrectPhi/CorrectPhi.H"
 #include "fvOptions.H"
+#include "timestepManager.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -54,33 +55,53 @@ int main(int argc, char *argv[])
   #include "createUfIfPresent.H"
   #include "CourantNo.H"
   #include "setInitialDeltaT.H"
-
+  #include "readTimeControls.H"
+    
   turbulence->validate();
 
   // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+  scalar small = 1e-3;
+  
   Info << "\nStarting time loop\n" << endl;
 
   while (runTime.run())
     {
-      //#include "readDyMControls.H"
+      
       //#include "CourantNo.H"
-      //#include "setDeltaT.H"
-
-      #include "readTimeControls.H"
       #include "setDeltaT.H"
       
       ++runTime;
 
       Info << "Time = " << runTime.timeName() << nl << endl;
 
+      dtManagerC.updateDerivatives();
+      dtManagerM.updateDerivatives();
+      
       #include "updateFields.H"      
       #include "pimple.H"
 
       #include "CEqn.H"
       #include "updateDiffusion.H"
       #include "MEqn.H"
-	
+
+      dimensionedScalar biofilmVolume = sum(biofilmPhase*mesh.V())/sum(mesh.V());
+      Info << "Occupied volume = " << biofilmVolume.value() << endl;
+
+      
+      Info << "Cmax: " << gMax(C) << endl;
+      Info << "Cmin: " << gMin(C) << endl;
+
+      if ( (gMax(C)>1.+small) || (gMin(C)<-small) ) {
+	  Info << ">>> Check min/max concentrations! <<<" << endl;
+	  if (runTime.value() > 3600) {
+	      FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
+	  }
+      }
+
+      Info << "Mmax: " << gMax(M) << endl;
+      Info << "Mmin: " << gMin(M) << endl;
+      
       runTime.write();
 
       runTime.printExecutionTime(Info);

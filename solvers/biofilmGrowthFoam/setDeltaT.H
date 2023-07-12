@@ -25,36 +25,23 @@ License
 Global
     setDeltaT
 
-Description
-    Reset the timestep to maintain a constant maximum courant Number.
-    Reduction of time-step is immediate, but increase is damped to avoid
-    unstable oscillations.
-
 \*---------------------------------------------------------------------------*/
 
 if (adjustTimeStep)
-  {
-    //scalar maxDeltaTFact = maxCo/(CoNum + SMALL);
-    //scalar deltaTFact = min(min(maxDeltaTFact, 1.0 + 0.1*maxDeltaTFact), 1.2);
+{
 
-    scalar dtForC = maxDeltaS/(ddtC.value()+SMALL);
-    scalar dtForM = maxDeltaS/(ddtM.value()+SMALL);
+    scalar dtForM = dtManagerM.computeTimestep();
+    scalar dtForC = dtManagerC.computeTimestep();
+
+    runTime.setDeltaT
+    (
+	min
+	(
+	    min(dtForM, dtForC),
+	    min(1.2*runTime.deltaTValue(),maxDeltaT)
+	)
+    );
       
-    // runTime.setDeltaT
-    //   (
-    //    min
-    //    (
-    // 	deltaTFact*runTime.deltaTValue(),
-    // 	maxDeltaT
-    //     )
-    //    );
-
-    scalar maxDeltaTFact = GREAT;
-    
-    scalar deltaTFact = min(min(maxDeltaTFact, 1.0 + 0.1*maxDeltaTFact), 1.2);
-    
-    runTime.setDeltaT( min( deltaTFact*runTime.deltaTValue(), min(dtForC, min(dtForM, maxDeltaT) ) ) );
-    
     Info << "deltaT = " <<  runTime.deltaTValue() << endl;
 }
 
