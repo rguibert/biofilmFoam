@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd ${0%/*} || exit 1
+set -x
+
+wmake libraries
+
+wmake solvers/biofilmGrowthFoam
+wmake solvers/biofilmGrowthPicardFoam
+wmake solvers/dbsBiofilmPimpleFoam
+
+wmake solvers/dbsPimpleFoam
+wmake solvers/pimpleFoam
+
+wmake utilities/inoculumGenerator
+wmake utilities/parabolicVelocity
