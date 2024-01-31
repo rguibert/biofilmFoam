@@ -40,98 +40,178 @@ Application
 int main(int argc, char *argv[])
 {
 
-  argList::addOption("patch","word","specify the patch to inoculate");
-  argList::addOption("nbcells","int","specify the number of cells to inoculate");
-  
-  Foam::timeSelector::addOptions();  
-  Foam::argList args(argc,argv);
+    argList::addOption("patch","word","specify the patch to inoculate");
+    argList::addOption("nbcells","int","specify the number of cells to inoculate");
 
-  if (!args.found("patch"))
+    argList::addOption("xmin","float","xmin");
+    argList::addOption("xmax","float","xmax");
+    argList::addOption("ymin","float","ymin");
+    argList::addOption("ymax","float","ymax");
+    argList::addOption("zmin","float","zmin");
+    argList::addOption("zmax","float","zmax");
+    
+    Foam::timeSelector::addOptions();  
+    Foam::argList args(argc,argv);
+
+    if (!args.found("patch"))
     {
-      FatalError << "no value specified" 
-		 << nl << " use option -patch"
-		 << exit(FatalError);
+	FatalError << "no value specified" 
+	    << nl << " use option -patch"
+	    << exit(FatalError);
     }
 
-  if (!args.found("nbcells"))
+    if (!args.found("nbcells"))
     {
-      FatalError << "no value specified" 
-  		 << nl << " use option -nbcells"
-  		 << exit(FatalError);
-    }  
-
-  Info << endl;
-  
-  //Info << "nbcells: " << args.get<int>("nbcells") << endl;
-
-  #include "createTime.H"  
-  #include "createMesh.H"
-  
-  label patchID = mesh.boundaryMesh().findPatchID(args.get<word>("patch"));
-  const polyPatch& cPatch = mesh.boundaryMesh()[patchID]; 
-
-  Info << "Patch: " << args.get<word>("patch") << endl;
-  Info << cPatch << endl;
-  
-  //Info << cPatch.start() << endl;
-  //Info << cPatch.size() << endl;
-
-  std::ofstream topoFile;
-  topoFile.open("system/topoSetDict");
-
-  topoFile << "FoamFile\n";
-  topoFile << "{\n";
-  topoFile << "    version     2.0;\n";
-  topoFile << "    format      ascii;\n";
-  topoFile << "    class       dictionary;\n";
-  topoFile << "    location    \"system\";\n";
-  topoFile << "    object      topoSetDict;\n";
-  topoFile << "}\n";
-  topoFile << "\n";
-  topoFile << "actions\n";
-  topoFile << "(\n";
-  topoFile << " {\n";
-  topoFile << "   name    inoculum;\n";
-  topoFile << "   type    cellSet;\n";
-  topoFile << "   action  new;\n";
-  topoFile << "   source  labelToCell;\n";
-  topoFile << "   value\n";
-  topoFile << "     (\n";
-
-  int tabCells[args.get<int>("nbcells")];
-
-  srand(time(NULL)); // not pseudo-random
-  
-  for (int i=0; i<args.get<int>("nbcells"); ++i) {
-    int v = rand() % cPatch.size();
-    int faceid = cPatch.start() + v;
-    int cellid = mesh.owner()[faceid];
-    bool test = true;
-    for (int j=0; j<i; ++j) {
-      if (tabCells[j] == cellid) {
-	test = false;
-      }
+	FatalError << "no value specified" 
+	    << nl << " use option -nbcells"
+	    << exit(FatalError);
     }
-    if (test == true) {
-      tabCells[i] = cellid;
-      topoFile << "      " << cellid << "\n";
+
+    float xmin;
+    if (args.found("xmin"))
+    {
+	xmin = stof(args.opt("xmin"));
     }
-    else {
-      i--;
+    else
+    {
+	xmin = -VGREAT;
     }
-  }
 
-  topoFile << "      );\n";  
-  topoFile << " }\n";
-  topoFile << " );\n";  
+    float xmax;
+    if (args.found("xmax"))
+    {
+	xmax = stof(args.opt("xmax"));
+    }
+    else
+    {
+	xmax = VGREAT;
+    }
 
-  topoFile.close();
+    float ymin;
+    if (args.found("ymin"))
+    {
+	ymin = stof(args.opt("ymin"));
+    }
+    else
+    {
+	ymin = -VGREAT;
+    }
 
-  Info << args.get<int>("nbcells") << " cells inoculated in system/topoSetDict" << endl;
+    float ymax;
+    if (args.found("ymax"))
+    {
+	ymax = stof(args.opt("ymax"));
+    }
+    else
+    {
+	ymax = VGREAT;
+    }
+
+    float zmin;
+    if (args.found("zmin"))
+    {
+	zmin = stof(args.opt("zmin"));
+    }
+    else
+    {
+	zmin = -VGREAT;
+    }
+
+    float zmax;
+    if (args.found("zmax"))
+    {
+	zmax = stof(args.opt("zmax"));
+    }
+    else
+    {
+	zmax = VGREAT;
+    }
+    
+    Info << endl;
+
+    cout << "box: [" << xmin << "," << xmax << "] [" << ymin << "," << ymax << "] [" << zmin << "," << zmax << "]\n\n";
+    
+    //Info << "nbcells: " << args.get<int>("nbcells") << endl;
+
+    #include "createTime.H"  
+    #include "createMesh.H"
   
-  Info << "\nEnd\n" << endl;
+    label patchID = mesh.boundaryMesh().findPatchID(args.get<word>("patch"));
+    const polyPatch& cPatch = mesh.boundaryMesh()[patchID]; 
 
-  return 0;
+    Info << "Patch: " << args.get<word>("patch") << endl;
+    Info << cPatch << endl;
+  
+    //Info << cPatch.start() << endl;
+    //Info << cPatch.size() << endl;
+
+    std::ofstream topoFile;
+    topoFile.open("system/topoSetDict");
+
+    topoFile << "FoamFile\n";
+    topoFile << "{\n";
+    topoFile << "    version     2.0;\n";
+    topoFile << "    format      ascii;\n";
+    topoFile << "    class       dictionary;\n";
+    topoFile << "    location    \"system\";\n";
+    topoFile << "    object      topoSetDict;\n";
+    topoFile << "}\n";
+    topoFile << "\n";
+    topoFile << "actions\n";
+    topoFile << "(\n";
+    topoFile << " {\n";
+    topoFile << "   name    inoculum;\n";
+    topoFile << "   type    cellSet;\n";
+    topoFile << "   action  new;\n";
+    topoFile << "   source  labelToCell;\n";
+    topoFile << "   value\n";
+    topoFile << "     (\n";
+
+    int tabCells[args.get<int>("nbcells")];
+
+    srand(time(NULL)); // not pseudo-random
+  
+    for (int i=0; i<args.get<int>("nbcells"); ++i) {
+	
+	int v = rand() % cPatch.size();
+	int faceid = cPatch.start() + v;
+	int cellid = mesh.owner()[faceid];
+	bool test = true;
+	
+	for (int j=0; j<i; ++j) {
+	    if (tabCells[j] == cellid) {
+		test = false;
+	    }
+	}
+
+	if ( (mesh.C()[cellid][0]<xmin) || (mesh.C()[cellid][0]>xmax) ||
+       	     (mesh.C()[cellid][1]<ymin) || (mesh.C()[cellid][1]>ymax) ||
+	     (mesh.C()[cellid][2]<zmin) || (mesh.C()[cellid][2]>zmax) ) {
+	    test = false;
+	}
+	
+	if (test == true) {
+	    tabCells[i] = cellid;
+	    topoFile << "      " << cellid << "\n";
+	    Info << cellid << endl;
+	}
+	else {
+	    i--;
+	}
+	
+    }
+
+    topoFile << "      );\n";  
+    topoFile << " }\n";
+    topoFile << " );\n";  
+
+    topoFile.close();
+
+    Info << "\n" << args.get<int>("nbcells") << " cells inoculated in system/topoSetDict" << endl;
+  
+    Info << "\nEnd\n" << endl;
+
+    return 0;
     
 }
 
