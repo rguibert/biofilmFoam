@@ -23,7 +23,7 @@ boundaryField
   inlet
     {
       type            parabolicVelocity;
-      maxValue        8.267195767195768e-6;
+      maxValue        8.267195767195767e-3;
       n               (1 0 0);
       y               (0 1 0);
     }

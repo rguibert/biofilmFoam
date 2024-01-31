@@ -17,7 +17,7 @@ FoamFile
 
 ddtSchemes
 {
-    default         Euler;
+    default         backward;
 }
 
 gradSchemes
@@ -28,23 +28,22 @@ gradSchemes
 divSchemes
 {
     default         Gauss linear;
-    div((nuEff*dev(T(grad(U))))) Gauss linear;    
+    div(phiByPorosity,C) bounded Gauss upwind;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default         Gauss linear orthogonal;
 }
 
 interpolationSchemes
 {
     default         linear;
-    d2              linear;
 }
 
 snGradSchemes
 {
-    default         corrected;
+    default         orthogonal;
 }
 
 fluxRequired

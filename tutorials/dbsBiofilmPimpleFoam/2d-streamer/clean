@@ -4,3 +4,4 @@
 
 cleanCase
 rm -rf 0/porosity 0/M
+touch 2d-streamer.foam

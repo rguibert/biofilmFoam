@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
 	#include "MEqn.H"
 	#include "updateBiofilmPhase.H"
 	
-        Info << "C in [" << gMin(C) << ";" << gMax(C) << "]" << endl;
-        Info << "M in [" << gMin(M) << ";" << gMax(M) << "]" << endl;
+        Info << "C in [" << gMin(C) << ", " << gMax(C) << "]" << endl;
+        Info << "M in [" << gMin(M) << ", " << gMax(M) << "]" << endl;
 
 	// if ( (gMax(C)>1.+SMALL) || (gMin(C)<-SMALL) ) {
 	//     Info << ">>> Check min/max concentrations! <<<" << endl;
@@ -93,9 +93,6 @@ int main(int argc, char *argv[])
 	// 	FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
 	//     }
 	// }
-
-	Info << "Mmax: " << gMax(M) << endl;
-	Info << "Mmin: " << gMin(M) << endl;
       
 	runTime.write();
 

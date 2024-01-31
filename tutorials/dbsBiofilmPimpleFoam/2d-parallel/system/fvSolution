@@ -23,7 +23,7 @@ solvers
 	solver           GAMG;
 	smoother         DICGaussSeidel;
 	tolerance        1e-6;
-	relTol           0.001;
+	relTol           1e-3;
     }
 
     pFinal
@@ -37,7 +37,7 @@ solvers
 	solver          smoothSolver;
 	smoother        symGaussSeidel;
 	tolerance       1e-6;
-	relTol          0.001;
+	relTol          1e-3;
     }
 
     UFinal
@@ -50,26 +50,18 @@ solvers
     {
 	solver          PCG;
 	preconditioner  DIC;
-	tolerance       1e-5;
+	tolerance       1e-6;
 	relTol          0;
     }
 
-    C // fluid coupling
+    C
     {
 	solver          smoothSolver;
 	smoother        GaussSeidel;
-	tolerance       1e-5;
+	tolerance       1e-6;
 	maxIter         1e5;
 	relTol          0;
     }
-    
-    // C // transport only
-    // {
-    // 	solver          PCG;
-    // 	preconditioner  DIC;
-    // 	tolerance       1e-6;
-    // 	relTol          0;
-    // }
     
 }
 

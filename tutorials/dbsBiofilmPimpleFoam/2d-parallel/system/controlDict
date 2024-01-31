@@ -23,7 +23,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         720000; // 200h
+endTime         345600; // 96h
 
 deltaT          1e-6;
 
