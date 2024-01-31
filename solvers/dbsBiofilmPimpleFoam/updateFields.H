@@ -1,6 +1,6 @@
 darcyTerm = fvc::average(laminarTransport.nu()/K);
 
-scalar foo = gMax(M);
+// scalar foo = gMax(M);
 
 forAll (biofilmPhase, celli) {
   if(M[celli] > SMALL) {

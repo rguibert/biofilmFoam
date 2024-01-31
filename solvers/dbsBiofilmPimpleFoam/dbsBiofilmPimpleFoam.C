@@ -43,73 +43,68 @@ Application
 
 int main(int argc, char *argv[])
 {
-  #include "postProcess.H"
+    #include "postProcess.H"
 
-  #include "addCheckCaseOptions.H"
-  #include "setRootCaseLists.H"
-  #include "createTime.H"
-  #include "createDynamicFvMesh.H"
-  #include "initContinuityErrs.H"
-  #include "createDyMControls.H"
-  #include "createFields.H"
-  #include "createUfIfPresent.H"
-  #include "CourantNo.H"
-  #include "setInitialDeltaT.H"
-  #include "readTimeControls.H"
+    #include "addCheckCaseOptions.H"
+    #include "setRootCaseLists.H"
+    #include "createTime.H"
+    #include "createDynamicFvMesh.H"
+    #include "initContinuityErrs.H"
+    #include "createDyMControls.H"
+    #include "createFields.H"
+    #include "createUfIfPresent.H"
+    #include "CourantNo.H"
+    #include "setInitialDeltaT.H"
+    #include "readTimeControls.H"
     
-  turbulence->validate();
+    turbulence->validate();
 
-  // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-  scalar small = 1e-3;
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
   
-  Info << "\nStarting time loop\n" << endl;
+    Info << "\nStarting time loop\n" << endl;
 
-  while (runTime.run())
+    while (runTime.run())
     {
       
-      //#include "CourantNo.H"
-      #include "setDeltaT.H"
+	//#include "CourantNo.H"
+	#include "setDeltaT.H"
       
-      ++runTime;
+	++runTime;
 
-      Info << "Time = " << runTime.timeName() << nl << endl;
+	Info << "Time = " << runTime.timeName() << nl << endl;
 
-      dtManagerC.updateDerivatives();
-      dtManagerM.updateDerivatives();
+	dtManagerC.updateDerivatives();
+	dtManagerM.updateDerivatives();
       
-      #include "updateFields.H"      
-      #include "pimple.H"
+	#include "updateFields.H"      
+	#include "pimple.H"
 
-      #include "CEqn.H"
-      #include "updateDiffusion.H"
-      #include "MEqn.H"
+	#include "CEqn.H"
+	#include "updateDiffusion.H"
+	#include "MEqn.H"
+	#include "updateBiofilmPhase.H"
+	
+        Info << "C in [" << gMin(C) << ";" << gMax(C) << "]" << endl;
+        Info << "M in [" << gMin(M) << ";" << gMax(M) << "]" << endl;
 
-      dimensionedScalar biofilmVolume = sum(biofilmPhase*mesh.V())/sum(mesh.V());
-      Info << "Occupied volume = " << biofilmVolume.value() << endl;
+	// if ( (gMax(C)>1.+SMALL) || (gMin(C)<-SMALL) ) {
+	//     Info << ">>> Check min/max concentrations! <<<" << endl;
+	//     if (runTime.value() > 3600) {
+	// 	FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
+	//     }
+	// }
 
+	Info << "Mmax: " << gMax(M) << endl;
+	Info << "Mmin: " << gMin(M) << endl;
       
-      Info << "Cmax: " << gMax(C) << endl;
-      Info << "Cmin: " << gMin(C) << endl;
+	runTime.write();
 
-      if ( (gMax(C)>1.+small) || (gMin(C)<-small) ) {
-	  Info << ">>> Check min/max concentrations! <<<" << endl;
-	  if (runTime.value() > 3600) {
-	      FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
-	  }
-      }
-
-      Info << "Mmax: " << gMax(M) << endl;
-      Info << "Mmin: " << gMin(M) << endl;
-      
-      runTime.write();
-
-      runTime.printExecutionTime(Info);
+	runTime.printExecutionTime(Info);
     }
 
-  Info << "End\n" << endl;
+    Info << "End\n" << endl;
 
-  return 0;
+    return 0;
 }
 
 
