@@ -8,9 +8,7 @@ wclean libraries/
 wclean solvers/biofilmGrowthFoam
 wclean solvers/biofilmGrowthPicardFoam
 wclean solvers/dbsBiofilmPimpleFoam
-
 wclean solvers/dbsPimpleFoam
-wclean solvers/pimpleFoam
 
 wclean utilities/inoculumGenerator
 wclean utilities/parabolicVelocity
@@ -21,7 +19,7 @@ then
     rm -f $FOAM_USER_APPBIN/biofilmGrowthPicardFoam
     rm -f $FOAM_USER_APPBIN/dbsBiofilmPimpleFoam
     rm -f $FOAM_USER_APPBIN/dbsPimpleFoam
-    rm -f $FOAM_USER_APPBIN/pimpleFoam
+    
     rm -f $FOAM_USER_APPBIN/inoculumGenerator
     rm -f $FOAM_USER_LIBBIN/libparabolicVelocity.so
 fi
