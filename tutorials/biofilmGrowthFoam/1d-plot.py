@@ -77,21 +77,17 @@ ax.get_proj=short_proj
 
 ax.plot_wireframe(matX, matT, matM, rstride=12, cstride=4, color="blue", alpha=0.75, label='M')
 ax.plot_wireframe(matX, matT, matC, rstride=12, cstride=4, color="red", alpha=0.25, label='C')
-
-# --- for 1d-D
-# ax.plot_wireframe(matX, matT, matM, rstride=24, cstride=4, color="blue", alpha=0.75, label='M')
-# ax.plot_wireframe(matX, matT, matC, rstride=24, cstride=4, color="red", alpha=0.25, label='C')
+## case 1d-D
+#ax.plot_wireframe(matX, matT, matM, rstride=24, cstride=4, color="blue", alpha=0.75, label='M')
+#ax.plot_wireframe(matX, matT, matC, rstride=24, cstride=4, color="red", alpha=0.25, label='C')
 
 ax.set_xlabel('Discretization')
 ax.set_ylabel('Time (h)')
 
 ax.xaxis.set_major_locator(MultipleLocator(16))
-
 ax.yaxis.set_major_locator(MultipleLocator(50))
-
-# --- for 1d-D
-# ax.yaxis.set_major_locator(MultipleLocator(100))
-
+## case 1d-D
+#ax.yaxis.set_major_locator(MultipleLocator(100))
 ax.zaxis.set_major_locator(MultipleLocator(0.25))
 
 ax.legend(loc='lower left', frameon=False)
