@@ -29,7 +29,7 @@ deltaT            1e-3;
 
 writeControl      adjustableRunTime;
 
-writeInterval     36000;
+writeInterval     7200;
 
 purgeWrite        0;
 
@@ -49,6 +49,6 @@ adjustTimeStep    yes;
 
 maxDeltaT         3600;
 
-truncationError   0.01;
+truncationError   0.001;
 
 // ************************************************************************* //
