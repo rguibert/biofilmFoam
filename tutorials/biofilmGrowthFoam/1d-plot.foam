@@ -83,7 +83,7 @@ ax.xaxis.set_major_locator(MultipleLocator(16))
 ax.yaxis.set_major_locator(MultipleLocator(50))
 ax.zaxis.set_major_locator(MultipleLocator(0.25))
 
-ax.legend(loc='lower left')
+ax.legend(loc='lower left', frameon=False)
 
 plt.show()
 

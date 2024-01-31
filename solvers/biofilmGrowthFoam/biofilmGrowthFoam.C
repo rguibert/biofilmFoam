@@ -63,7 +63,10 @@ int main(int argc, char *argv[])
 	#include "updateDiffusion.H"
 	#include "MEqn.H"
 	#include "updateBiofilmPhase.H"
-      
+
+	Info << "C in [" << gMin(C) << ";" << gMax(C) << "]" << endl;
+	Info << "M in [" << gMin(M) << ";" << gMax(M) << "]" << endl;
+	
 	runTime.write();
 
 	runTime.printExecutionTime(Info);

@@ -4,16 +4,16 @@ Info << "Reading field C\n" << endl;
 
 volScalarField C
 (
- IOobject
- (
-  "C",
-  runTime.timeName(),
-  mesh,
-  IOobject::MUST_READ,
-  IOobject::AUTO_WRITE
-  ),
- mesh
- );
+    IOobject
+    (
+	"C",
+	runTime.timeName(),
+	mesh,
+	IOobject::MUST_READ,
+	IOobject::AUTO_WRITE
+    ),
+    mesh
+);
 
 Info << "Reading field M\n" << endl;
 
@@ -21,16 +21,16 @@ dimensionedScalar ddtC("ddtC", dimensionSet(0,0,0,0,0), 0.);
 
 volScalarField M
 (
- IOobject
- (
-  "M",
-  runTime.timeName(),
-  mesh,
-  IOobject::MUST_READ,
-  IOobject::AUTO_WRITE
-  ),
- mesh
- );
+    IOobject
+    (
+	"M",
+	runTime.timeName(),
+	mesh,
+	IOobject::MUST_READ,
+	IOobject::AUTO_WRITE
+    ),
+    mesh
+);
 
 dimensionedScalar ddtM("ddtM", dimensionSet(0,0,0,0,0), 0.);
 
@@ -40,15 +40,15 @@ Info << "Reading transportProperties\n" << endl;
 
 IOdictionary transportProperties
 (
- IOobject
- (
-  "transportProperties",
-  runTime.constant(),
-  mesh,
-  IOobject::MUST_READ_IF_MODIFIED,
-  IOobject::NO_WRITE
-  )
- );
+    IOobject
+    (
+	"transportProperties",
+	runTime.constant(),
+	mesh,
+	IOobject::MUST_READ_IF_MODIFIED,
+	IOobject::NO_WRITE
+    )
+);
 
 // dimemsions: kg | m | s | K | mol | A | cd
 
@@ -106,21 +106,21 @@ dimensionedScalar K4 = k3*k4;
 
 volScalarField biofilmPhase
 (
- IOobject
- (
-  "biofilmPhase",
-  runTime.timeName(),
-  mesh,
-  IOobject::NO_READ,
-  IOobject::AUTO_WRITE
-  ),
- mesh,
- dimensionedScalar ("biofilmPhase", dimensionSet(0,0,0,0,0), 0.),
- "zeroGradient"
- );
+    IOobject
+    (
+	"biofilmPhase",
+	runTime.timeName(),
+	mesh,
+	IOobject::NO_READ,
+	IOobject::AUTO_WRITE
+    ),
+    mesh,
+    dimensionedScalar ("biofilmPhase", dimensionSet(0,0,0,0,0), 0.),
+    "zeroGradient"
+);
 
 forAll ( mesh.C(), celli) {
-  if(M[celli] > SMALL) {
-    biofilmPhase[celli] = 1.;
-  }
+    if(M[celli] > SMALL) {
+	biofilmPhase[celli] = 1.;
+    }
 }
