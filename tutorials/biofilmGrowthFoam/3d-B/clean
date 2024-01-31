@@ -5,4 +5,4 @@
 cleanCase
 rm -rf 0/M
 rm -rf system/topoSetDict
-touch ktest-3d-B.foam
+touch 3d-B.foam

@@ -4,4 +4,4 @@
 
 cleanCase
 rm -rf 0/M
-rm -rf *.pdf
+touch 1d-A.foam
