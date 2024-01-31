@@ -25,7 +25,7 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    biofilmGrowthFoam
+    biofilmGrowthPicardFoam
 
 \*---------------------------------------------------------------------------*/
 
@@ -69,13 +69,13 @@ int main(int argc, char *argv[])
             iterPicard++;
 	    #include "updateDiffusion.H"
 	    #include "MEqn.H"
+	    resPicard = gMax((mag(M-M.prevIter()))->internalField());
+	    Info << "Picard iteration " << iterPicard << ": residual = " << resPicard << endl;
         }
 
 	if (resPicard > tolPicard)
         {
-	    FatalErrorIn("biofilmGrowthPicardFoam.C")
-	    << "Picard not converged!"
-		<< abort(FatalError);
+	    FatalErrorIn("biofilmGrowthPicardFoam.C") << "Picard not converged!" << abort(FatalError);
 	}
 	
 	#include "updateBiofilmPhase.H"

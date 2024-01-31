@@ -34,8 +34,6 @@ Description
 
 const bool adjustTimeStep = runTime.controlDict().getOrDefault("adjustTimeStep", false);
 
-//scalar maxCo = runTime.controlDict().getOrDefault<scalar>("maxCo", 1);
-
 scalar maxDeltaT = runTime.controlDict().getOrDefault<scalar>("maxDeltaT", GREAT);
 
 scalar maxDeltaS = runTime.controlDict().getOrDefault<scalar>("maxDeltaS", GREAT);

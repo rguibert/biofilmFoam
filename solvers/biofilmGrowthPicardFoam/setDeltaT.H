@@ -35,21 +35,9 @@ Description
 
 if (adjustTimeStep)
 {
-    //scalar maxDeltaTFact = maxCo/(CoNum + SMALL);
-    //scalar deltaTFact = min(min(maxDeltaTFact, 1.0 + 0.1*maxDeltaTFact), 1.2);
-
     scalar dtForC = maxDeltaS/(ddtC.value()+SMALL);
     scalar dtForM = maxDeltaS/(ddtM.value()+SMALL);
-      
-    // runTime.setDeltaT
-    //   (
-    //    min
-    //    (
-    // 	deltaTFact*runTime.deltaTValue(),
-    // 	maxDeltaT
-    //     )
-    //    );
-
+ 
     scalar maxDeltaTFact = GREAT;
     
     scalar deltaTFact = min(min(maxDeltaTFact, 1.0 + 0.1*maxDeltaTFact), 1.2);
