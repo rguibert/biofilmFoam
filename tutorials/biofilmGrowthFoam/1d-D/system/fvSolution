@@ -11,44 +11,36 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      controlDict;
+    object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application       fooFoam;
+solvers
+{
 
-startFrom         latestTime;
+  M
+    {
+      solver          PCG;
+      preconditioner  DIC;
+      tolerance       1e-6;
+      relTol          0;
+    }
 
-startTime         0;
+  C
+    {
+      solver          PCG;
+      preconditioner  DIC;
+      tolerance       1e-6;
+      relTol          0;
+    }
+    
+}
 
-stopAt            endTime;
+PIMPLE
+{
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0;
+}
 
-endTime           720000; // 200h
-
-deltaT            1;
-
-writeControl      adjustableRunTime;
-
-writeInterval     3600;
-
-purgeWrite        0;
-
-writeFormat       ascii;
-
-writePrecision    6;
-
-writeCompression  off;
-
-timeFormat        general;
-
-timePrecision     6;
-
-runTimeModifiable true;
-
-adjustTimeStep    yes;
-
-maxDeltaT         600;
-
-truncationError   0.001;
 
 // ************************************************************************* //

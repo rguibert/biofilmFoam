@@ -23,9 +23,9 @@ startTime         0;
 
 stopAt            endTime;
 
-endTime           1800000; // 500h
+endTime           540000; // 150h
 
-deltaT            1;
+deltaT            1e-3;
 
 writeControl      adjustableRunTime;
 
@@ -47,7 +47,7 @@ runTimeModifiable true;
 
 adjustTimeStep    yes;
 
-maxDeltaT         600;
+maxDeltaT         3600;
 
 truncationError   0.001;
 

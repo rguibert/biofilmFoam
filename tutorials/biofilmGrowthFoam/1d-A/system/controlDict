@@ -11,42 +11,44 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      fvSchemes;
+    object      controlDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
-{
-  default         backward;
-}
+application       fooFoam;
 
-gradSchemes
-{
-  default         Gauss linear;
-}
+startFrom         latestTime;
 
-divSchemes
-{
-  default         none;
-}
+startTime         0;
 
-laplacianSchemes
-{
-  default         none;
-  laplacian(d1,C) Gauss linear orthogonal;
-  laplacian((pow((eps|(1-M)),a)*pow(M,b)),M) Gauss linear orthogonal;
-}
+stopAt            endTime;
 
-interpolationSchemes
-{
-  default         none;
-  d2              cubic;
-}
+endTime           720000; // 200h
 
-snGradSchemes
-{
-  default         orthogonal;
-}
+deltaT            1e-3;
 
+writeControl      adjustableRunTime;
+
+writeInterval     3600;
+
+purgeWrite        0;
+
+writeFormat       ascii;
+
+writePrecision    6;
+
+writeCompression  off;
+
+timeFormat        general;
+
+timePrecision     6;
+
+runTimeModifiable true;
+
+adjustTimeStep    yes;
+
+maxDeltaT         3600;
+
+truncationError   0.001;
 
 // ************************************************************************* //
