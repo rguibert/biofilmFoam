@@ -12,3 +12,4 @@ wmake solvers/dbsPimpleFoam
 
 wmake utilities/inoculumGenerator
 wmake utilities/parabolicVelocity
+wmake utilities/permeability
