@@ -39,7 +39,7 @@ writePrecision  6;
 
 timeFormat      general;
 
-timePrecision   6;
+timePrecision   12;
 
 runTimeModifiable yes;
 
@@ -47,7 +47,7 @@ adjustTimeStep  yes;
 
 maxDeltaT       3600;
 
-truncationError 0.001;
+truncationError 0.01;
 
 libs ("libparabolicVelocity.so");
 
