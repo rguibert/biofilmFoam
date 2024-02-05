@@ -23,7 +23,7 @@ startTime         0;
 
 stopAt            endTime;
 
-endTime           1800000; // 500h
+endTime           2314800; // 643h
 
 deltaT            1e-3;
 
@@ -41,7 +41,7 @@ writeCompression  off;
 
 timeFormat        general;
 
-timePrecision     6;
+timePrecision     12;
 
 runTimeModifiable true;
 
@@ -49,6 +49,6 @@ adjustTimeStep    yes;
 
 maxDeltaT         3600;
 
-truncationError   0.001;
+truncationError   0.01;
 
 // ************************************************************************* //
