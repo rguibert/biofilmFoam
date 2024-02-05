@@ -32,9 +32,12 @@ Application
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+
 int main(int argc, char *argv[])
 {
-  
+
+    argList::addOption("zmax", "zmax");
+    
     #include "setRootCase.H"
     #include "createTime.H"
     #include "createMesh.H"
@@ -47,6 +50,29 @@ int main(int argc, char *argv[])
 
     Info << "\nStarting time loop\n" << endl;
 
+    scalar zlimit;
+    bool checkZmax = false;
+    if (!args.found("zmax"))
+    {
+	zlimit = 1.;
+    }
+    else
+    {
+	zlimit = stof(args.opt("zmax"));
+	checkZmax = true;
+	if ((zlimit > 1) || (zlimit < 0))
+	{
+	    FatalError << "invalid value for zmax (must be in [0, 1])" << exit(FatalError);
+	}
+	
+    }
+
+    point bMin = mesh.bounds().min();
+    point bMax = mesh.bounds().max();
+
+    scalar Z = bMax.component(2)-bMin.component(2);
+    zlimit = zlimit*Z;
+    
     while (runTime.run())
     {
 	
@@ -54,7 +80,7 @@ int main(int argc, char *argv[])
 	
 	runTime++;
       
-	Info << "Time = " << runTime.timeName() << nl << endl;
+	Info << "Time = " << runTime.timeName() << endl;
 
 	dtManagerC.updateDerivatives();
 	dtManagerM.updateDerivatives();
@@ -70,6 +96,8 @@ int main(int argc, char *argv[])
 	runTime.write();
 
 	runTime.printExecutionTime(Info);
+
+	#include "checkZmax.H"
       
     }
 

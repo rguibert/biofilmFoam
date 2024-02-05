@@ -1,4 +1,4 @@
 EulerD3dt3Scheme/EulerD3dt3Scheme.C
 timestepManager/timestepManager.C
 
-LIB = $(FOAM_USER_LIBBIN)/libPMFnumericalMethods
+LIB = $(FOAM_USER_LIBBIN)/libNumericalMethods
