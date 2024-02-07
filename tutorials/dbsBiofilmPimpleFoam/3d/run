@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=dbsBiofilmPimpleFoam
+#app=biofilmGrowthFoam
+
+cp 0/porosity.org 0/porosity
+cp 0/M.org 0/M
+runApplication blockMesh
+
+runApplication inoculumGenerator -patch bottom -nbcells 328 -xmin 0.00012096
+runApplication topoSet
+runApplication setFields
+
+runApplication decomposePar
+runParallel $app
+
+#runApplication $app
