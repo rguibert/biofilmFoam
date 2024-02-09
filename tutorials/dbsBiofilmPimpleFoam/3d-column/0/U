@@ -23,7 +23,8 @@ boundaryField
   z1
     {
       type flowRateInletVelocity;
-      volumetricFlowRate 5.231735149559431e-13;
+      // volumetricFlowRate 5.231735149559431e-13; // 200 pv / h
+      volumetricFlowRate 2.615867574779715e-14; // 10 pv / h
       value uniform (0 0 0);
       extrapolateProfile yes;
     }

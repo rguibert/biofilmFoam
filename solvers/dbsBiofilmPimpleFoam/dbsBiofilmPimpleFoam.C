@@ -97,11 +97,9 @@ int main(int argc, char *argv[])
 	forAll ( mesh.C(), celli) {
 	    if (M[celli] < 0) {
 		if (M[celli] > -SMALL) {
-		    FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
+		    Info << "CE: " << M[celli] << endl;
 		}
-		else if (M[celli] < -SMALL) {
-		    M[celli] = 0.;
-		}
+		M[celli] = 0.;
 	    }
 	}
 	

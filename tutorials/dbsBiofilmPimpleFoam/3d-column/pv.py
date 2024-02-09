@@ -9,9 +9,7 @@ rs = 40*1.89e-6
 h = 280*1.89e-6
   
 pv = math.pi*rc*rc*h-3*4/3*math.pi*rs*rs*rs
-n_pvh = 200
+n_pvh = 10
 q = n_pvh*pv/3600
-
-l = rc-rs
 
 print(q)
