@@ -93,7 +93,18 @@ int main(int argc, char *argv[])
 	// 	FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
 	//     }
 	// }
-      
+
+	forAll ( mesh.C(), celli) {
+	    if (M[celli] < 0) {
+		if (M[celli] > -SMALL) {
+		    FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
+		}
+		else if (M[celli] < -SMALL) {
+		    M[celli] = 0.;
+		}
+	    }
+	}
+	
 	runTime.write();
 
 	runTime.printExecutionTime(Info);
