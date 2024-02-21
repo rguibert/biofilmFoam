@@ -17,64 +17,62 @@ FoamFile
 
 solvers
 {
-  p
+    p
     {
-      solver           GAMG;
-      smoother         DICGaussSeidel;
-      tolerance        1e-6;
-      relTol           1e-3;
+	solver           GAMG;
+	smoother         DICGaussSeidel;
+	tolerance        1e-6;
+	relTol           1e-3;
     }
 
-  pFinal
+    pFinal
     {
-      $p;
-      relTol          0;
+	$p;
+	relTol          0;
     }
 
-  U
+    U
     {
-      solver          smoothSolver;
-      smoother        symGaussSeidel;
-      tolerance       1e-6;
-      relTol          1e-3;
+	solver          smoothSolver;
+	smoother        symGaussSeidel;
+	tolerance       1e-6;
+	relTol          1e-3;
     }
 
-  UFinal
+    UFinal
     {
-      $U;
-      relTol          0;
+	$U;
+	relTol          0;
     }
-  M
+    M
     {
-      solver          PCG;
-      preconditioner  DIC;
-      tolerance       1e-6;
-      relTol          0;
+	solver          PCG;
+	preconditioner  DIC;
+	tolerance       1e-6;
+	relTol          0;
     }
 
-  C
+    C
     {
-      solver          smoothSolver;
-      smoother        GaussSeidel;
-      //solver          PBiCG;
-      //preconditioner  DILU;
-      tolerance       1e-6;
-      maxIter         1e5;
-      relTol          0;
+        solver          GAMG;
+        smoother        DILUGaussSeidel;
+	tolerance       1e-6;
+	minIter         1;
+	relTol          0;	
     }  
 }
 
 PIMPLE
 {
-  momentumPredictor   no;
+    momentumPredictor   no;
   
-  nNonOrthogonalCorrectors 0;
-  nCorrectors         2;
+    nNonOrthogonalCorrectors 0;
+    nCorrectors         2;
   
-  nOuterCorrectors    1;
+    nOuterCorrectors    1;
 
-  pRefCell    0;
-  pRefValue    0;
+    pRefCell    0;
+    pRefValue    0;
 }
 
 

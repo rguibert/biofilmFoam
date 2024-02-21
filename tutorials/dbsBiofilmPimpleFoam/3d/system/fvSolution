@@ -54,14 +54,15 @@ solvers
 	relTol          0;
     }
 
+
     C
     {
-	solver          smoothSolver;
-	smoother        GaussSeidel;
+        solver          GAMG;
+        smoother        DILUGaussSeidel;
 	tolerance       1e-6;
-	maxIter         1e5;
+	minIter         1;
 	relTol          0;
-    }
+    }   
     
 }
 
