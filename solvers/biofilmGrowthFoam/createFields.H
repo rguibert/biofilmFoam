@@ -98,9 +98,9 @@ dimensionedScalar K4 = k3*k4;
 
 // --- G
 
-//Info << "G = l * l * G0" << endl;
-//Info << "G0 = mum * mmax / (d1 * c0)" << endl;
-//Info << "G0 = " << mum*mmax/(d1*c0) << endl;
+// Info << "G = l * l * G0" << endl;
+// Info << "G0 = mum * mmax / (d1 * c0)" << endl;
+// Info << "G0 = " << mum*mmax/(d1*c0) << endl;
 
 // --- biofilm phase
 
@@ -124,3 +124,8 @@ forAll ( mesh.C(), celli) {
 	biofilmPhase[celli] = 1.;
     }
 }
+
+// --- file biofilmVolume.dat
+
+// std::ofstream bfile;
+// bfile.open ("biofilmVolume.dat", std::fstream::app);
