@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 
 	dtManagerC.updateDerivatives();
 	dtManagerM.updateDerivatives();
-      
+	
 	#include "updateFields.H"      
 	#include "pimple.H"
 
@@ -83,26 +83,10 @@ int main(int argc, char *argv[])
 	#include "updateDiffusion.H"
 	#include "MEqn.H"
 	#include "updateBiofilmPhase.H"
-	
+
         Info << "C in [" << gMin(C) << ", " << gMax(C) << "]" << endl;
         Info << "M in [" << gMin(M) << ", " << gMax(M) << "]" << endl;
 
-	// if ( (gMax(C)>1.+SMALL) || (gMin(C)<-SMALL) ) {
-	//     Info << ">>> Check min/max concentrations! <<<" << endl;
-	//     if (runTime.value() > 3600) {
-	// 	FatalErrorIn("dbsBiofilmPimpleFoam.H") << nl << "Error conservation!" << nl << abort(FatalError);
-	//     }
-	// }
-
-	forAll ( mesh.C(), celli) {
-	    if (M[celli] < 0) {
-		if (M[celli] > -SMALL) {
-		    Info << "CE: " << M[celli] << endl;
-		}
-		M[celli] = 0.;
-	    }
-	}
-	
 	runTime.write();
 
 	runTime.printExecutionTime(Info);

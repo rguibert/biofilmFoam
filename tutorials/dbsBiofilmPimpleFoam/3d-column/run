@@ -26,13 +26,6 @@ mv log.topoSet log.topoSet.sphere2
 runApplication setFields
 mv log.setFields log.setFields.sphere2
 
-runApplication inoculumGenerator -patch sphere3 -nbcells 300
-mv log.inoculumGenerator log.inoculumGenerator.sphere3
-runApplication topoSet
-mv log.topoSet log.topoSet.sphere3
-runApplication setFields
-mv log.setFields log.setFields.sphere3
-
 runApplication decomposePar
 runParallel $app
 

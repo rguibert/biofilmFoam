@@ -6,10 +6,11 @@ if sys.version_info<(3,5,0):
 
 rc = 50*1.89e-6
 rs = 40*1.89e-6
-h = 280*1.89e-6
-  
+h = 240*1.89e-6
+
+n_pvh = 10
+
 pv = math.pi*rc*rc*h-3*4/3*math.pi*rs*rs*rs
-n_pvh = 100
 q = n_pvh*pv/3600
 
 print(q)

@@ -23,8 +23,8 @@ boundaryField
   z1
     {
       type flowRateInletVelocity;
-      volumetricFlowRate 2.6158675747797153e-13; // 100 pv / h
-      // volumetricFlowRate 2.615867574779715e-14; // 10 pv / h
+      volumetricFlowRate 2.0267082110905905e-13; // 100 pv / h
+      // volumetricFlowRate 2.0267082110905904e-14; // 10 pv / h
       value uniform (0 0 0);
       extrapolateProfile yes;
     }
@@ -58,6 +58,12 @@ boundaryField
       value uniform (0 0 0);
     }
 
+  sphere0
+    {
+      type fixedValue;
+      value uniform (0 0 0);
+    }
+  
   sphere1
     {
       type fixedValue;

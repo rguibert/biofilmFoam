@@ -51,6 +51,11 @@ boundaryField
       type            zeroGradient;
     }
 
+  sphere0
+    {
+      type            zeroGradient;
+    }
+  
   sphere1
     {
       type            zeroGradient;

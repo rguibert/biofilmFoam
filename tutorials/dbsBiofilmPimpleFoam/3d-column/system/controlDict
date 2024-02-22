@@ -17,13 +17,13 @@ FoamFile
 
 application     pimpleFoam;
 
-startFrom       latestTime;
+startFrom       startTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         345600; // 96h
+endTime         691200; // 192h
 
 deltaT          1e-6;
 
@@ -39,7 +39,7 @@ writePrecision  6;
 
 timeFormat      general;
 
-timePrecision   12;
+timePrecision   6;
 
 runTimeModifiable yes;
 

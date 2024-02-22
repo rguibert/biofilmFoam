@@ -35,22 +35,28 @@ geometry
 	point2          (50 50 1000);
 	radius          50;
     }
+    sphere0
+    {
+	type            searchableSphere;
+	centre          (50 50 0);
+	radius          40;
+    }
     sphere1
     {
 	type            searchableSphere;
-	centre          (50 50 40);
+	centre          (50 50 80);
 	radius          40;
     }
     sphere2
     {
 	type            searchableSphere;
-	centre          (50 50 120);
+	centre          (50 50 160);
 	radius          40;
     }
     sphere3
     {
 	type            searchableSphere;
-	centre          (50 50 200);
+	centre          (50 50 240);
 	radius          40;
     }
 }
@@ -113,6 +119,11 @@ castellatedMeshControls
             // Surface-wise min and max refinement level
             level (0 0);
         }
+	sphere0
+        {
+            // Surface-wise min and max refinement level
+            level (0 0);
+        }
 	sphere1
         {
             // Surface-wise min and max refinement level
@@ -161,7 +172,7 @@ castellatedMeshControls
     // section reachable from the locationInMesh is kept.
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
-    locationInMesh (60 60 1);
+    locationInMesh (55 55 40);
 
 
     // Whether any faceZones (as specified in the refinementSurfaces)
