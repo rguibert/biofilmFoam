@@ -13,14 +13,15 @@ MRF.correctBoundaryVelocity(U);
 
 tmp<fvVectorMatrix> tUEqn
 (
-    (1./porosity+SMALL) * fvm::ddt(U)
-    + (1./porosity+SMALL) * fvm::div(phiByPorosity, U)
-    + (1./porosity+SMALL) * MRF.DDt(U)
-    + (1./porosity+SMALL) * turbulence->divDevReff(U)
+    (1./porosity+SMALL) * (
+	fvm::ddt(U)
+	+ fvm::div(phiByPorosity, U)
+	+ turbulence->divDevReff(U) )
     + fvm::Sp(darcyTerm, U)
     ==
     fvOptions(U)
 );
+
 fvVectorMatrix& UEqn = tUEqn.ref();
 
 UEqn.relax();

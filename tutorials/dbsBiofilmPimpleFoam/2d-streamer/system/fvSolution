@@ -49,13 +49,18 @@ solvers
 	solver          PCG;
 	preconditioner  DIC;
 	tolerance       1e-6;
+	minIter         1;	
 	relTol          0;
     }
 
     C
     {
         solver          GAMG;
-        smoother        DILUGaussSeidel;
+        smoother        GaussSeidel;
+	// solver          smoothSolver;
+	// smoother        GaussSeidel;
+	// solver          PBiCG;
+	// preconditioner  DILU;
 	tolerance       1e-6;
 	minIter         1;
 	relTol          0;	
