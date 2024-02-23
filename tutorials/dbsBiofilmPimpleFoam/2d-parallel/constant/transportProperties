@@ -17,7 +17,11 @@ FoamFile
 
 transportModel  Newtonian;
 
-nu              1.0e-6;
+nu                   1.0e-06;
+
+biofilmPermeability  1.0e-12;
+
+biofilmPorosity      0.3;
 
 d1    1.6e-09;
 

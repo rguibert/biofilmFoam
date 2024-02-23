@@ -39,7 +39,7 @@ writePrecision  6;
 
 timeFormat      general;
 
-timePrecision   6;
+timePrecision   12;
 
 runTimeModifiable yes;
 

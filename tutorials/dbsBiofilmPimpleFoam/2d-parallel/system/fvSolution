@@ -51,6 +51,7 @@ solvers
 	solver          PCG;
 	preconditioner  DIC;
 	tolerance       1e-6;
+	minIter         1;
 	relTol          0;
     }
 
