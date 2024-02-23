@@ -85,19 +85,8 @@ surfaceScalarField phiByPorosity
     phi*linearInterpolate(1./(porosity+SMALL))
 );
 
-// Info << "Reading transportProperties\n" << endl;
-// IOdictionary transportProperties
-// (
-//  IOobject
-//  (
-//   "transportProperties",
-//   runTime.constant(),
-//   mesh,
-//   IOobject::MUST_READ_IF_MODIFIED,
-//   IOobject::NO_WRITE
-//   )
-//  );
+dimensionedScalar nu ("nu", dimensionSet(0,2,-1,0,0), gMax(fvc::average( laminarTransport.nu() )()));
 
-volScalarField darcyTerm ("Drag", laminarTransport.nu()/K);
+volScalarField darcyTerm ("darcyTerm", nu/K);
 
-#include "createFieldsBiofilm.C"
+

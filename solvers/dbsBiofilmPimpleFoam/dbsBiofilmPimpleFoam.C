@@ -51,7 +51,10 @@ int main(int argc, char *argv[])
     #include "createDynamicFvMesh.H"
     #include "initContinuityErrs.H"
     #include "createDyMControls.H"
+    
+    #include "createFieldsBiofilm.H"    
     #include "createFields.H"
+
     #include "createUfIfPresent.H"
     #include "CourantNo.H"
     #include "setInitialDeltaT.H"

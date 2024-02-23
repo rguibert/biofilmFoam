@@ -119,13 +119,17 @@ volScalarField biofilmPhase
     "zeroGradient"
 );
 
-forAll ( mesh.C(), celli) {
-    if(M[celli] > SMALL) {
-	biofilmPhase[celli] = 1.;
-    }
-}
-
 // --- file biofilmVolume.dat
 
 // std::ofstream bfile;
 // bfile.open ("biofilmVolume.dat", std::fstream::app);
+
+// ---
+
+Info << "Reading biofilm permeability\n" << endl;
+// dimensionedScalar biofilmPermeability ("biofilmPermeability", dimensionSet(0, 2, 0, 0, 0, 0, 0), transportProperties);
+dimensionedScalar biofilmPermeability(transportProperties.lookupOrDefault<dimensionedScalar>("biofilmPermeability", dimensionedScalar("biofilmPermeability", dimLength*dimLength, 1e-30)));
+
+Info << "Reading biofilm porosity\n" << endl;
+// dimensionedScalar biofilmPorosity ("biofilmPorosity", dimensionSet(0, 0, 0, 0, 0, 0, 0), transportProperties);
+dimensionedScalar biofilmPorosity(transportProperties.lookupOrDefault<dimensionedScalar>("biofilmPorosity", dimensionedScalar("biofilmPorosity", dimless, 1)));

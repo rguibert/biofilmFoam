@@ -1,5 +1,5 @@
 
-forAll ( mesh.C(), celli) {
+forAll (mesh.C(), celli) {
     if (M[celli] > SMALL) {
 	biofilmPhase[celli] = 1.;
     }
