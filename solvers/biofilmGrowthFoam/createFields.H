@@ -128,7 +128,7 @@ volScalarField biofilmPhase
 
 Info << "Reading biofilm permeability\n" << endl;
 // dimensionedScalar biofilmPermeability ("biofilmPermeability", dimensionSet(0, 2, 0, 0, 0, 0, 0), transportProperties);
-dimensionedScalar biofilmPermeability(transportProperties.lookupOrDefault<dimensionedScalar>("biofilmPermeability", dimensionedScalar("biofilmPermeability", dimLength*dimLength, 1e-30)));
+dimensionedScalar biofilmPermeability(transportProperties.lookupOrDefault<dimensionedScalar>("biofilmPermeability", dimensionedScalar("biofilmPermeability", dimLength*dimLength, 1e-12)));
 
 Info << "Reading biofilm porosity\n" << endl;
 // dimensionedScalar biofilmPorosity ("biofilmPorosity", dimensionSet(0, 0, 0, 0, 0, 0, 0), transportProperties);

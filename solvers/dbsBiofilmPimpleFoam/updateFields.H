@@ -6,6 +6,7 @@ forAll (mesh.C(), celli) {
         darcyTerm[celli] = nu.value()/K[celli];
     }
     else {
+	M[celli] = 0.;
 	K[celli] = 1.;
 	porosity[celli] = 1.;
 	biofilmPhase[celli] = 0.;
