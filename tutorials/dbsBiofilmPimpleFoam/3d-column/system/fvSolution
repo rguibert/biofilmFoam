@@ -21,7 +21,7 @@ solvers
     p
     {
 	solver           GAMG;
-	smoother         GaussSeidel; //DICGaussSeidel;
+	smoother         DICGaussSeidel;
 	tolerance        1e-6;
 	relTol           1e-3;
     }

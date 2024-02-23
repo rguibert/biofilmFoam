@@ -8,7 +8,7 @@ rc = 50*1.89e-6
 rs = 40*1.89e-6
 h = 240*1.89e-6
 
-n_pvh = 10
+n_pvh = 360
 
 pv = math.pi*rc*rc*h-3*4/3*math.pi*rs*rs*rs
 q = n_pvh*pv/3600
