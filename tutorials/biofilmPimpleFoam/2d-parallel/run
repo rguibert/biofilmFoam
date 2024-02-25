@@ -1,0 +1,28 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=biofilmPimpleFoam
+
+cp 0/porosity.org 0/porosity
+cp 0/M.org 0/M
+runApplication blockMesh
+
+runApplication inoculumGenerator -patch bottom -nbcells 32 -xmin 0.00012096
+mv log.inoculumGenerator log.inoculumGenerator.1
+runApplication topoSet
+mv log.topoSet log.topoSet.1
+runApplication setFields
+mv log.setFields log.setFields.1
+
+runApplication inoculumGenerator -patch top -nbcells 32 -xmin 0.00012096
+mv log.inoculumGenerator log.inoculumGenerator.2
+runApplication topoSet
+mv log.topoSet log.topoSet.2
+runApplication setFields
+mv log.setFields log.setFields.2
+
+runApplication decomposePar
+runParallel $app
+
+#runApplication $app

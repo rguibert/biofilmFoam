@@ -5,11 +5,11 @@ set -x
 
 wmake libraries
 
-wmake solvers/biofilmGrowthFoam
-wmake solvers/biofilmGrowthPicardFoam
-wmake solvers/dbsBiofilmPimpleFoam
-wmake solvers/dbsPimpleFoam
+wmake solvers/biofilmFoam
+wmake solvers/biofilmPicardFoam
+wmake solvers/biofilmPimpleFoam
 
+wmake utilities/biomass
 wmake utilities/inoculumGenerator
 wmake utilities/parabolicVelocity
 wmake utilities/permeability

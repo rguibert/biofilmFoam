@@ -1,0 +1,15 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=biofilmFoam
+
+cp 0/M.org 0/M
+runApplication blockMesh
+#runApplication inoculumGenerator -patch z0 -nbcells 83
+#runApplication inoculumGenerator -patch z0 -nbcells 411
+runApplication inoculumGenerator -patch z0 -nbcells 821
+runApplication topoSet
+runApplication setFields
+runApplication decomposePar
+runParallel $app

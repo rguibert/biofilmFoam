@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     biofilmPimpleFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         345600; // 96h
+
+deltaT          1e-6;
+
+writeControl    adjustableRunTime;
+
+writeInterval   3600;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+timeFormat      general;
+
+timePrecision   12;
+
+runTimeModifiable yes;
+
+adjustTimeStep  yes;
+
+maxDeltaT       3600;
+
+truncationError 0.001;
+
+libs ("libparabolicVelocity.so");
+
+// ************************************************************************* //
