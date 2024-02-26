@@ -29,51 +29,11 @@ boundaryField
     {
       type zeroGradient;
     }
-
-  x0
-    {
-      type zeroGradient;
-    }
   
-  x1
+  solid
     {
       type zeroGradient;
     }
-  
-  y0
-    {
-      type zeroGradient;
-    }
-  
-  y1
-    {
-      type zeroGradient;
-    }
-
-  sphere0
-    {
-      type zeroGradient;
-    }
-  
-  sphere1
-    {
-      type zeroGradient;
-    }
-  
-  sphere2
-    {
-      type zeroGradient;
-    }
-
-  sphere3
-    {
-      type zeroGradient;
-    }
-  
-  cylinder
-    {
-      type zeroGradient;
-    }  
 }
 
 // ************************************************************************* //
