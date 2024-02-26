@@ -47,7 +47,7 @@ adjustTimeStep  yes;
 
 maxDeltaT       3600;
 
-truncationError 0.01;
+truncationError 0.001;
 
 libs ("libparabolicVelocity.so");
 
