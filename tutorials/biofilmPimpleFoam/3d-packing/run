@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# image source
+# https://www.digitalrocksportal.org/projects/47/origin_data/311/
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=biofilmPimpleFoam
+
+cp 0/porosity.org 0/porosity
+cp 0/M.org 0/M
+
+tar -xf constant/polyMesh.tgz
+mv polyMesh constant/.
+
+runApplication inoculumGenerator -patch solid -nbcells 500 -zmin 50 -zmax 450
+runApplication topoSet
+runApplication setFields
+
+runApplication transformPoints -scale 1.89e-6
+
+runApplication decomposePar
+runParallel $app

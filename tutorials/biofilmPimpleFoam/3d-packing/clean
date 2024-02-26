@@ -1,0 +1,7 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+cleanCase
+rm -rf 0/porosity 0/M system/topoSetDict *.dat
+touch 3d-packing.foam
