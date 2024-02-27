@@ -10,11 +10,11 @@ rho = 1e3
 mu = 1e-3
   
 rcyl = 50*1.89e-6
-rsph = 1*1.89e-6
+rsph = 25*1.89e-6
 h = 500*1.89e-6
 
 cyl_are = math.pi*rcyl*rcyl
-cyl_vol = math.pi*rcyl*rcyl*h
+cyl_vol = cyl_are*h
 sph_vol = 3*4/3*math.pi*rsph*rsph*rsph
 
 eps = 0.27342
