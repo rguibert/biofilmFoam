@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     
     forAll(timeDirs, timei)
     {
-      
+	
 	runTime.setTime(timeDirs[timei], timei);
     
 	#include "createMesh.H"
@@ -90,7 +90,6 @@ int main(int argc, char *argv[])
 	cellVolume.ref() = mesh.V();
 
 	dimensionedScalar domainVolume = gSum(cellVolume);
-	Info << domainVolume << endl;
 
 	// biomass
 
@@ -102,11 +101,16 @@ int main(int argc, char *argv[])
 	    }
 	}
 
+	reduce(biomassVolume, sumOp<dimensionedScalar>());
+	
 	biomassVolume = biomassVolume/domainVolume;
-
+	Info << "biomass = " << biomassVolume.value() << endl;
+	
 	// write
 
 	bfile << runTime.timeName() << " " << biomassVolume.value() << "\n";
+
+	Info << endl;
 	
     }
 	
