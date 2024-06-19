@@ -3,9 +3,9 @@
 cd ${0%/*} || exit 1
 set -x
 
-if [ -f $WM_PROJECT_DIR/wmake/scripts/AllwmakeParseArguments ]
-then  . $WM_PROJECT_DIR/wmake/scripts/AllwmakeParseArguments
-fi
+# if [ -f $WM_PROJECT_DIR/wmake/scripts/AllwmakeParseArguments ]
+# then  . $WM_PROJECT_DIR/wmake/scripts/AllwmakeParseArguments
+# fi
 
 wmake libraries
 
