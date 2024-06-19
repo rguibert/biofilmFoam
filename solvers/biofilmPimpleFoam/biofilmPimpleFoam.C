@@ -79,7 +79,6 @@ int main(int argc, char *argv[])
 	dtManagerC.updateDerivatives();
 	dtManagerM.updateDerivatives();
 	
-	#include "updateFields.H"      
 	#include "pimple.H"
 
 	#include "CEqn.H"
