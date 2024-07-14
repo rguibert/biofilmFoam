@@ -56,15 +56,15 @@ int main(int argc, char *argv[])
     
     while (runTime.run())
     {
+
+	dtManagerC.updateDerivatives();
+	dtManagerM.updateDerivatives();
 	
 	#include "setDeltaT.H"
 	
 	runTime++;
       
 	Info << "Time = " << runTime.timeName() << endl;
-
-	dtManagerC.updateDerivatives();
-	dtManagerM.updateDerivatives();
 		
 	#include "CEqn.H"
 	#include "updateDiffusion.H"

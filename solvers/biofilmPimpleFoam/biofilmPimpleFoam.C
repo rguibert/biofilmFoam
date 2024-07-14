@@ -68,16 +68,16 @@ int main(int argc, char *argv[])
 
     while (runTime.run())
     {
-      
+
+	dtManagerC.updateDerivatives();
+	dtManagerM.updateDerivatives();
+	
 	//#include "CourantNo.H"
 	#include "setDeltaT.H"
       
 	++runTime;
 
 	Info << "Time = " << runTime.timeName() << nl << endl;
-
-	dtManagerC.updateDerivatives();
-	dtManagerM.updateDerivatives();
 	
 	#include "pimple.H"
 
