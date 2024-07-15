@@ -8,5 +8,6 @@ linux64GccDPInt32Debug/
 lnInclude/
 darwin*
 .DS_Store
+._.DS_Store
 *.pdf
 .idea/
