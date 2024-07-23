@@ -57,8 +57,9 @@ int main(int argc, char *argv[])
 
     #include "createUfIfPresent.H"
     #include "CourantNo.H"
-    #include "setInitialDeltaT.H"
+
     #include "readTimeControls.H"
+    #include "setInitialDeltaT.H"
     
     turbulence->validate();
 
