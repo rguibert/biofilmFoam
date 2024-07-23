@@ -4,6 +4,9 @@
 #    Copyright 2023 Toulouse INP
 #    Romain Guibert
 
+#  warning
+# postProcess sample can encouter problems on MacOS
+
 import os
 import sys
 import numpy as np
