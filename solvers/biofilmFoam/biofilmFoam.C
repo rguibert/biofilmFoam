@@ -57,9 +57,6 @@ int main(int argc, char *argv[])
     while (runTime.run())
     {
 
-	dtManagerC.updateDerivatives();
-	dtManagerM.updateDerivatives();
-	
 	#include "setDeltaT.H"
 	
 	runTime++;
@@ -71,6 +68,9 @@ int main(int argc, char *argv[])
 	#include "MEqn.H"
 	#include "updateBiofilmPhase.H"
 
+	dtManagerC.updateDerivatives();
+	dtManagerM.updateDerivatives();
+	
 	Info << "C in [" << gMin(C) << ";" << gMax(C) << "]" << endl;
 	Info << "M in [" << gMin(M) << ";" << gMax(M) << "]" << endl;
 	
