@@ -11,3 +11,6 @@ darwin*
 ._.DS_Store
 *.pdf
 .idea/
+build/
+_static/
+_templates/
