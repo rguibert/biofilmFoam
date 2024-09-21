@@ -9,7 +9,7 @@ EXE_INC = \
     -I$(LIB_SRC)/transportModels/incompressible/singlePhaseTransportModel \
     -I$(LIB_SRC)/dynamicMesh/lnInclude \
     -I$(LIB_SRC)/dynamicFvMesh/lnInclude \
-    -I../../libraries/lnInclude    
+    -I../../libraries/numericalMethods/lnInclude    
 
 
 EXE_LIBS = \

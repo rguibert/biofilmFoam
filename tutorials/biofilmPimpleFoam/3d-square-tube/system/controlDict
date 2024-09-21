@@ -49,6 +49,6 @@ maxDeltaT       3600;
 
 truncationError 0.001;
 
-libs ("libparabolicVelocity.so");
+libs ("libParabolicVelocity.so");
 
 // ************************************************************************* //

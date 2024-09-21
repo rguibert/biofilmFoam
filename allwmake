@@ -7,7 +7,8 @@ set -x
 # then  . $WM_PROJECT_DIR/wmake/scripts/AllwmakeParseArguments
 # fi
 
-wmake libraries
+wmake libraries/numericalMethods
+wmake libraries/parabolicVelocity
 
 wmake solvers/biofilmFoam
 wmake solvers/biofilmPimpleFoam

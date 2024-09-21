@@ -34,7 +34,7 @@ laplacianSchemes
 {
   default         none;
   laplacian(d1,C) Gauss linear orthogonal;
-  laplacian((pow((eps|(1-M)),a)*pow(M,b)),M) Gauss linear orthogonal;
+  laplacian(d2,M) Gauss linear orthogonal;
 }
 
 interpolationSchemes
