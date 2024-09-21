@@ -22,6 +22,5 @@ then
 
     rm -f $FOAM_USER_APPBIN/biomass    
     rm -f $FOAM_USER_APPBIN/inoculumGenerator
-    rm -f $FOAM_USER_LIBBIN/libparabolicVelocity.so
-    rm -f $FOAM_USER_LIBBIN/permeability
+    rm -f $FOAM_USER_APPBIN/permeability
 fi

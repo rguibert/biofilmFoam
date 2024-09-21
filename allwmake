@@ -15,5 +15,4 @@ wmake solvers/biofilmPimpleFoam
 
 wmake utilities/biomass
 wmake utilities/inoculumGenerator
-wmake utilities/parabolicVelocity
 wmake utilities/permeability
