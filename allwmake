@@ -10,7 +10,6 @@ set -x
 wmake libraries
 
 wmake solvers/biofilmFoam
-wmake solvers/biofilmPicardFoam
 wmake solvers/biofilmPimpleFoam
 
 wmake utilities/biomass

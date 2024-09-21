@@ -6,7 +6,6 @@ set -x
 wclean libraries/
 
 wclean solvers/biofilmFoam
-wclean solvers/biofilmPicardFoam
 wclean solvers/biofilmPimpleFoam
 
 wclean utilities/biomass
@@ -17,7 +16,6 @@ wclean utilities/permeability
 if [ "$1" = "--purge" ]
 then
     rm -f $FOAM_USER_APPBIN/biofilmFoam
-    rm -f $FOAM_USER_APPBIN/biofilmPicardFoam
     rm -f $FOAM_USER_APPBIN/biofilmPimpleFoam
 
     rm -f $FOAM_USER_APPBIN/biomass    
