@@ -12,8 +12,21 @@ Contents
 
 .. toctree::
    :maxdepth: 1
-	      
+   :caption: Documentation
+	     
+   start
+   install
+   solvers
+   utilities
+   librairies
+   tutorials
+   references
 
+.. toctree::
+   :caption: Sources
+
+   GitHub repository <https://github.com/rguibert/biofilmFoam>
+   
 .. history
 
 .. Indices and tables

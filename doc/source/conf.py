@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'biofilmFoam'
-copyright = '2024, Toulouse INP, Romain Guibert'
+copyright = '2024, Toulouse INP/IMFT, Romain Guibert'
 author = 'Romain Guibert'
 
 # The full version, including alpha/beta/rc tags
