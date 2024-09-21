@@ -4,13 +4,19 @@ Tutorials
 biofilmFoam
 -----------
 
-- 1D validation case
+.. toctree::
+   :maxdepth: 0
 
-- 3D validation case
-
+   bf1d
+   bf3d
+   
+   
 biofilmPimpleFoam
 -----------------
 
-- 2D parallel plates
+.. toctree::
+   :maxdepth: 0
 
-- 3D Sphere packing
+   bpf2d
+   bpf3d
+   

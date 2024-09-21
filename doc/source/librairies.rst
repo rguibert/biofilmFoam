@@ -1,7 +1,7 @@
 Librairies
 ==========
 
-EulerD3dt3Scheme
+numericalMethods
 ----------------
 
 parabolicVelocity
@@ -12,6 +12,3 @@ in file ``0/U``
 .. literalinclude:: parabolic
    :language: text
 
-
-timestepManager
----------------

@@ -8,12 +8,12 @@ Welcome to biofilmFoam's documentation!
 | Romain Guibert (romain.guibert@imft.fr)
 
 Contents
---------
+========
 
 .. toctree::
    :maxdepth: 1
    :caption: Documentation
-	     
+      
    start
    install
    solvers
