@@ -2,6 +2,7 @@
 *.dep
 *~
 \#*
+.#*
 linux64GccDPOpt/
 linux64GccDPInt32Opt/
 linux64GccDPInt32Debug/
