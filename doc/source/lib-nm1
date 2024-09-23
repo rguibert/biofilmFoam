@@ -1,0 +1,7 @@
+runTimeModifiable true;
+
+adjustTimeStep    yes;
+
+maxDeltaT         3600;
+
+truncationError   0.001;
