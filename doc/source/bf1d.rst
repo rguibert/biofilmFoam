@@ -38,8 +38,8 @@ Then, the script ``tutorials/biofilmFoam/1d-plot.py`` reproduces the figure illu
 
 The obtained image, reported below, illustrates time trends in nutrient concentration C and biomass M.
    
-.. figure:: img/biofilmFoam-tutorial-1d-a.png
-   :scale: 75 %
+.. figure:: https://raw.githubusercontent.com/rguibert/public-images/refs/heads/main/biofilmFoam-tutorial-1d-a.png
+   :width: 500px
    :alt: biofilmFoam-tutorial-1d-a.png
    :align: center
 

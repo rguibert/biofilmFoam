@@ -28,13 +28,13 @@ Once the calculation is complete, the results can be visualized using ParaView
 
 For the same inoculum at the bottom surface, different types of biofilm formation can be obtained, depending on the model parameters provided in the ``constant/transportProperties`` file, as illustrated below.
 
-.. figure:: img/biofilmFoam-tutorial-3d-b-1.png
-   :scale: 33 %
+.. figure:: https://raw.githubusercontent.com/rguibert/public-images/refs/heads/main/biofilmFoam-tutorial-3d-b-1.png
+   :width: 500px
    :alt: biofilmFoam-tutorial-3d-b-1.png
    :align: center
 
-.. figure:: img/biofilmFoam-tutorial-3d-b-2.png
-   :scale: 33 %
+.. figure:: https://raw.githubusercontent.com/rguibert/public-images/refs/heads/main/biofilmFoam-tutorial-3d-b-2.png
+   :width: 500px
    :alt: biofilmFoam-tutorial-3d-b-2.png
    :align: center	   
 
