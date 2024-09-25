@@ -1,0 +1,28 @@
+#!/bin/bash
+
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+app=biofilmFoam
+
+# initialization of biomass field M
+cp 0/M.org 0/M
+
+# mesh creation
+runApplication blockMesh
+
+# other case
+# runApplication inoculumGenerator -patch z0 -nbcells 83
+
+# other case
+# runApplication inoculumGenerator -patch z0 -nbcells 411
+
+# application of inoculum on patch z0
+runApplication inoculumGenerator -patch z0 -nbcells 821
+runApplication topoSet
+runApplication setFields
+
+# domain decomposition (in 4 subdomains as described in system/decomposeParDict)
+runApplication decomposePar
+
+# run the case on 4 processors
+runParallel $app

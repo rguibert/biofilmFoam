@@ -36,5 +36,18 @@ Then, the script ``tutorials/biofilmFoam/1d-plot.py`` reproduces the figure illu
    ln -s ../1d-plot.py
    python3 1d-plot.py
 
+The obtained image, reported below, illustrates time trends in nutrient concentration C and biomass M.
+   
+.. figure:: img/biofilmFoam-tutorial-1d-a.png
+   :scale: 75 %
+   :alt: biofilmFoam-tutorial-1d-a.png
+   :align: center
+
+|br|
+
 The other 1D test cases of this type (1d-B, 1d-C and 1d-D) available in the toolbox,  can be used to handle elementary behaviours, namely
 the biofilm growth under non-symmetric, the biofilm growth under symmetric conditions and the merging of two colonies.
+
+.. |br| raw:: html
+
+  <br/>

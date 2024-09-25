@@ -22,6 +22,7 @@ while executable solvers and utilities are placed in the corresponding OpenFOAM 
 
 Each tutorial directory includes ``./run`` and ``./clean`` scripts, which facilitate the testing of the installation and validation of the solvers.
 
+For visualization, you need to have `ParaView <https://www.paraview.org/>`_ installed.
 
 Compatibility
 -------------
