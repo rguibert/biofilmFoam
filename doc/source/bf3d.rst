@@ -20,7 +20,7 @@ Below is a commented version of the ``run`` script used to launch the case:
 .. literalinclude:: bf3d-2
    :language: text
 
-Once the calculation is complete, the results can be visualized using ParaView
+``runApplication`` and ``runParallel`` are internal OpenFOAM functions that automatically manage log files and retrieve the necessary arguments, such as the number of processors for the second function. Once the calculation is complete, the results can be visualized using ParaView
 
 .. prompt:: bash
 

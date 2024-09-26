@@ -1,0 +1,5 @@
+z1
+  {
+    type fixedValue;
+    value uniform 1;
+  }
