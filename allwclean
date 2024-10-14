@@ -3,18 +3,16 @@
 cd ${0%/*} || exit 1
 set -x
 
-wclean libraries/
-
-wclean solvers/biofilmFoam
-wclean solvers/biofilmPimpleFoam
-
-wclean utilities/biomass
-wclean utilities/inoculumGenerator
-wclean utilities/parabolicVelocity
-wclean utilities/permeability
+wclean all libraries/
+wclean all solvers/
+wclean all utilities/
 
 if [ "$1" = "--purge" ]
 then
+
+    rm -rf $FOAM_USER_LIBBIN/libNumericalMethods.so
+    rm -rf $FOAM_USER_LIBBIN/libParabolicVelocity.so
+    
     rm -f $FOAM_USER_APPBIN/biofilmFoam
     rm -f $FOAM_USER_APPBIN/biofilmPimpleFoam
 
