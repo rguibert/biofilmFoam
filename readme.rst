@@ -1,6 +1,12 @@
 biofilmFoam
 ===========
 
+[![Licence: GPL v3](https://img.shields.io/badge/Licence-GPLv3-blue.svg?style=for-the-badge&logo=gnu)](https://www.gnu.org/licenses/gpl-3.0)
+[![Documentation Status](https://img.shields.io/readthedocs/biofilmfoam/latest?logo=read-the-docs&style=for-the-badge)](https://biofilmfoam.readthedocs.io/en/latest/)
+[![DOI](https://img.shields.io/badge/DOI-10.1016/j.softx.2024.102011-blue?style=for-the-badge&logo=doi)](https://doi.org/10.1016/j.softx.2024.102011)
+[![Version](https://img.shields.io/github/v/release/rguibert/biofilmFoam?style=for-the-badge&logo=github)](https://github.com/rguibert/biofilmFoam/releases)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge&logo=github)](https://github.com/rguibert/biofilmFoam/issues)
+
 About
 -----
 

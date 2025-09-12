@@ -28,5 +28,6 @@ mv log.setFields log.setFields.sphere2
 
 runApplication decomposePar
 runParallel $app
+#runApplication reconstructPar
 
 #runApplication $app

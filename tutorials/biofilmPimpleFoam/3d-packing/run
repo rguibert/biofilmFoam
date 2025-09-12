@@ -21,3 +21,4 @@ runApplication transformPoints -scale 1.89e-6
 
 runApplication decomposePar
 runParallel $app
+#runApplication reconstructPar
