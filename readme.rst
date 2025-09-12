@@ -5,7 +5,7 @@ biofilmFoam
    :target: https://www.gnu.org/licenses/gpl-3.0
    :alt: Licence GPL v3
 .. image:: https://img.shields.io/badge/v2409-blue?logo=github
-   :target: https://github.com/rguibert/biofilmFoam/releases
+   :target: https://github.com/rguibert/biofilmFoam/
    :alt: v2409
 .. image:: https://img.shields.io/readthedocs/biofilmfoam/latest?logo=read-the-docs
    :target: https://biofilmfoam.readthedocs.io/en/latest/
