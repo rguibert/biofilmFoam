@@ -1,33 +1,21 @@
 biofilmFoam
 ===========
 
-.. list-table::
-   :widths: 10 90
-   :stub-columns: 1
-
-   * - Badges
-     -
-       .. image:: https://img.shields.io/readthedocs/biofilmfoam/latest?logo=read-the-docs
-          :target: https://biofilmfoam.readthedocs.io/en/latest/
-          :alt: Documentation Status
-       .. image:: https://img.shields.io/badge/Licence-GPLv3-blue.svg?logo=gnu
-          :target: https://www.gnu.org/licenses/gpl-3.0
-          :alt: Licence GPL v3
-       .. image:: https://img.shields.io/badge/DOI-10.1016/j.softx.2024.102011-blue?logo=doi
-          :target: https://doi.org/10.1016/j.softx.2024.102011
-          :alt: DOI
-       .. image:: https://github.com/rguibert/biofilmFoam/actions/workflows/ci.yml/badge.svg
-          :target: https://github.com/rguibert/biofilmFoam/actions/workflows/ci.yml
-          :alt: CI Status
-       .. image:: https://img.shields.io/codecov/c/github/rguibert/biofilmFoam?logo=codecov
-          :target: https://codecov.io/gh/rguibert/biofilmFoam
-          :alt: Codecov
-       .. image:: https://img.shields.io/github/v/release/rguibert/biofilmFoam?logo=github
-          :target: https://github.com/rguibert/biofilmFoam/releases
-          :alt: Latest Release
-       .. image:: https://img.shields.io/badge/contributions-welcome-brightgreen?logo=github
-          :target: https://github.com/rguibert/biofilmFoam/issues
-          :alt: Contributions Welcome
+.. image:: https://img.shields.io/badge/Licence-GPLv3-blue.svg?logo=gnu
+   :target: https://www.gnu.org/licenses/gpl-3.0
+   :alt: Licence GPL v3
+.. image:: https://img.shields.io/badge/v2409-blue?logo=github
+   :target: https://github.com/rguibert/biofilmFoam/releases
+   :alt: v2409
+.. image:: https://img.shields.io/readthedocs/biofilmfoam/latest?logo=read-the-docs
+   :target: https://biofilmfoam.readthedocs.io/en/latest/
+   :alt: Documentation Status
+.. image:: https://img.shields.io/badge/contributions-welcome-brightgreen?logo=github
+   :target: https://github.com/rguibert/biofilmFoam/issues
+   :alt: Contributions Welcome
+.. image:: https://img.shields.io/badge/DOI-10.1016/j.softx.2024.102011-blue?logo=doi
+   :target: https://doi.org/10.1016/j.softx.2024.102011
+   :alt: DOI
 
 About
 -----
