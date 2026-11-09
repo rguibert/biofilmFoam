@@ -10,3 +10,5 @@ References used for the development of **biofilmFoam**:
 - Soulaine et al, `Mineral dissolution and wormholing from a pore-scale perspective <https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/mineral-dissolution-and-wormholing-from-a-porescale-perspective/82CE22EF080CA51DF1C2BEECA4C582DD>`_, *Journal of Fluid Mechanics*, 2017.
   
 - Horgue et al, `porousMultiphaseFoam v2107: An open-source tool for modeling saturated/unsaturated water flows and solute transfers at watershed scale <https://www.sciencedirect.com/science/article/abs/pii/S0010465521003908>`_, *Computer Physics Communications*, 2022.
+
+- Machado et al, `Correcting the micro-continuum approach for the direct numerical simulation of the absolute permeability of porous media <https://link-springer-com.gorgone.univ-toulouse.fr/article/10.1007/s11242-025-02184-2>`_, *Transport in Porous Media*, 2025.
