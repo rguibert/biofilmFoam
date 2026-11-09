@@ -1,2 +1,6 @@
+### v2611
+correction of biofilmPimpleFoam (thanks to K. Choudhary)
+adding correction term to biofilmPimpleFoam (Machado et al, 2025)
+
 ### v2404
 initial version
