@@ -30,12 +30,12 @@ with  :math:`c_0` the initial nutrient concentration and :math:`m_{max}` the max
 biofilmPimpleFoam
 -----------------
 
-This solver allows to couple the previous density-diffusion biofilm model to the surrounding hydrodynamics, using a Darcy-Brinkman approach (see Soulaine et al):
+This solver allows to couple the previous density-diffusion biofilm model to the surrounding hydrodynamics, using a Darcy-Brinkman approach (see Soulaine et al and Machado et al):
 
 .. math::
   \frac{1}{\phi} \left( \frac{\partial \rho {\bf u}}{\partial t}
   + \nabla \cdot \left( \frac{\rho}{\phi} {\bf u} {\bf u} \right) \right)
-  = - \nabla p + \frac{\mu}{\phi} \nabla^2 {\bf u} - \frac{\mu}{k} {\bf u}
+  = - \nabla p + \frac{\mu}{\phi} \nabla^2 {\bf u} - \frac{\mu}{k} {\bf u} - \frac{\mu}{\phi} \nabla\phi \cdot \nabla \left( \frac{{\bf u}}{\phi} \right)
 
 .. math::
   \nabla \cdot {\bf u} = 0
