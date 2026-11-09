@@ -2,7 +2,7 @@ Welcome to biofilmFoam's documentation!
 =======================================
 
 | **Last update**
-| 09/2024
+| 11/2026
 
 | **Corresponding author**
 | Romain Guibert (romain.guibert@imft.fr)
